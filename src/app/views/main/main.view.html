@@ -1,0 +1,14 @@
+<nz-layout>
+    <nz-sider  nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+         <app-nz-sider></app-nz-sider>
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <i class="trigger lg-menu" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+        </nz-header>
+        <nz-content>
+            <router-outlet></router-outlet>
+        </nz-content>
+        <nz-footer >Ant Design ©2021 Implement By PADC</nz-footer>
+    </nz-layout>
+</nz-layout>

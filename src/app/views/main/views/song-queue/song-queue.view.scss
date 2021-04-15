@@ -1,0 +1,22 @@
+.nz-col {
+    width: 50%;
+}
+nz-card {
+    display: flex;
+}
+.image {
+    width: 40px;
+    height: 40px;
+}
+i{
+    font-size: 25px;
+}
+
+::ng-deep {
+    .ant-card-body {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+}

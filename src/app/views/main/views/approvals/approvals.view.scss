@@ -1,0 +1,11 @@
+.nz-col{
+    margin: 10px 0;
+}
+.btn-content{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+::ng-deep .ant-row{
+    display: block;
+}

@@ -1,0 +1,14 @@
+li {
+    padding: 15px 10px;
+    cursor: pointer;
+    span {
+        margin-left: 10px;
+        color: white !important;
+
+    }
+}
+
+.activatedRoute {
+    background: #00c0fa !important;
+    color: white !important;
+}
