@@ -12,7 +12,8 @@ export class StatisticsViewComponent implements OnInit, OnDestroy {
     constructor() { }
 
     ngOnInit(): void {
-        console.log('barev');
+        console.log('barevr43');
+        console.log('jdfdsfsdf');
     }
 
     ngOnDestroy(): void {
