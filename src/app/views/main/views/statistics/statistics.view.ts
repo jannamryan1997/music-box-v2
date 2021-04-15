@@ -11,7 +11,9 @@ export class StatisticsViewComponent implements OnInit, OnDestroy {
     private _unsubscribe$ = new Subject<void>();
     constructor() { }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        console.log('barev');
+    }
 
     ngOnDestroy(): void {
         this._unsubscribe$.next();
