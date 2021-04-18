@@ -1,5 +1,29 @@
+.statistic{
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+#chart-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#chart-item{
+    display: block;
+    width: 50% !important;
+    height: 400px !important;
+    text-align: center;
+    padding: 1.2em;
+}
 #myChart{
     display: block;
     width: 500px !important;
     height: 400px !important;
+    text-align: center;
+    margin: auto;
 }
