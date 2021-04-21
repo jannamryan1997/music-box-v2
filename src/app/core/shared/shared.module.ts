@@ -8,14 +8,34 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDeleteModalComponent } from '../madals';
 
 
 @NgModule({
-    declarations: [],
-    imports: [FormsModule,ReactiveFormsModule,CommonModule, NzIconModule, NzInputModule, NzButtonModule, NzTableModule, NzCardModule, NzFormModule, NzModalModule],
-    exports: [FormsModule,ReactiveFormsModule,CommonModule, NzIconModule, NzInputModule, NzButtonModule, NzTableModule, NzCardModule, NzFormModule, NzModalModule ],
+    declarations: [ConfirmDeleteModalComponent],
+    imports: [FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        NzIconModule,
+        NzInputModule,
+        NzButtonModule,
+        NzTableModule,
+        NzCardModule,
+        NzFormModule,
+        NzModalModule],
+    exports: [ConfirmDeleteModalComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        NzIconModule,
+        NzInputModule,
+        NzButtonModule,
+        NzTableModule,
+        NzCardModule,
+        NzFormModule,
+        NzModalModule],
     providers: [],
-    entryComponents: []
+    entryComponents: [ConfirmDeleteModalComponent]
 })
 
 export class SharedModule { }

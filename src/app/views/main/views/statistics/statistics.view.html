@@ -1,19 +1,18 @@
 <div class="statistic">
-
-
-<div id="myChart">
-    <p>Compare Sales Strategy</p>
-    <canvas id="chart"></canvas>
-</div>
-
-<div id="chart-content">
-    <div  id="chart-item">
-        <p>Restaurant</p>
-        <canvas id="chart2"></canvas>
+    <div style="text-align: center;">
+        <p>Compare Sales Strategy</p>
+        <div id="strategy-chart">
+            <app-chart [chart]="'chart'" style="width: 100%;"></app-chart>
+        </div>
     </div>
-    <div  id="chart-item">
-        <p>Users</p>
-        <canvas id="chart3"></canvas>
+    <div class="chart-container">
+        <div id="chart-item">
+            <p>Restaurant</p>
+            <app-chart [chart]="'chart1'" style="width: 100%;"></app-chart>
+        </div>
+        <div id="chart-item">
+            <p>Users</p>
+            <app-chart [chart]="'chart2'" style="width: 100%;"></app-chart>
+        </div>
     </div>
-</div>
 </div>

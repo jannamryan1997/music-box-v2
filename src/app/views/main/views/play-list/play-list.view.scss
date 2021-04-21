@@ -1,6 +1,15 @@
-.image{
+.image {
     height: 40px;
     width: 40px;
+}
+
+nz-table {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    tr {
+        background: white;
+    }
 }
 
 ::ng-deep .nz-disable-td {

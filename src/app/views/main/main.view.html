@@ -1,14 +1,21 @@
 <nz-layout>
-    <nz-sider  nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-         <app-nz-sider></app-nz-sider>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <app-nz-sider></app-nz-sider>
     </nz-sider>
     <nz-layout>
         <nz-header>
             <i class="trigger lg-menu" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+            <i class="trigger sm-menu" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsedMobile = !isCollapsedMobile"></i>
+            <ul *ngIf="isCollapsedMobile" nz-menu nzTheme="dark" nzMode="inline" class="main-slider">
+                <li nz-menu-item *ngFor="let item of menuItem" [routerLink]="item?.path" routerLinkActive="activatedRoute">
+                    <i nz-icon nzType="{{item?.icon}}" routerLinkActive="activatedRouteIcon"></i>
+                    <span>{{item?.label}}</span>
+                </li>
+            </ul>
         </nz-header>
         <nz-content>
             <router-outlet></router-outlet>
         </nz-content>
-        <nz-footer >Ant Design ©2021 Implement By PADC</nz-footer>
+        <nz-footer>Ant Design ©2021 Implement By PADC</nz-footer>
     </nz-layout>
 </nz-layout>

@@ -1,0 +1,34 @@
+@media only screen and (max-width:900px) {
+    .song-queue {
+        .nz-col {
+            width: 100% !important;
+        }
+    }
+    #strategy-chart {
+        width: 100% !important;
+    }
+    .chart-container {
+        flex-direction: column !important;
+    }
+    #chart-item {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    nz-sider {
+        display: none !important;
+    }
+    .lg-menu {
+        display: none !important;
+    }
+    .sm-menu {
+        display: inline-block !important;
+    }
+    .response-main {
+        display: block !important;
+    }
+    .main-slider {
+        display: block !important;
+    }
+}
