@@ -7,7 +7,7 @@
             <i class="trigger lg-menu" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
             <i class="trigger sm-menu" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsedMobile = !isCollapsedMobile"></i>
             <ul *ngIf="isCollapsedMobile" nz-menu nzTheme="dark" nzMode="inline" class="main-slider">
-                <li nz-menu-item *ngFor="let item of menuItem" [routerLink]="item?.path" routerLinkActive="activatedRoute">
+                <li nz-menu-item *ngFor="let item of menuItem" [routerLink]="item?.path" routerLinkActive="activatedRoute" (click)="logOut(item)">
                     <i nz-icon nzType="{{item?.icon}}" routerLinkActive="activatedRouteIcon"></i>
                     <span>{{item?.label}}</span>
                 </li>

@@ -1,39 +1,32 @@
 <div class="view-main">
+    <app-mat-spinner *ngIf="loading"></app-mat-spinner>
     <header>
         <p class="title">Pending approvals</p>
     </header>
-                <div style="background: #ECECEC;padding:30px;">
-                    <div nz-row >
-                      <div nz-col class="nz-col">
-                        <nz-card nzTitle="Restaurant 1">
-                            <p>Restaurant Data</p>
-                            <div class="btn-content">
-                                <button nz-button nzType="primary">Approve</button> 
-                                <button nz-button nzType="default" nzDanger style="margin-left: 10px;">Reject</button>
-                            </div>
-                        
-                        </nz-card>
-                      </div>
-                      <div nz-col  class="nz-col">
-                        <nz-card nzTitle="Restaurant 2">
-                            <p>Restaurant Data</p>
-                            <div class="btn-content">
-                                <button nz-button nzType="primary">Approve</button> 
-                                <button nz-button nzType="default" nzDanger style="margin-left: 10px;">Reject</button>
-                            </div>
-                            
-                        </nz-card>
-                      </div>
-                      <div nz-col  class="nz-col">
-                        <nz-card nzTitle="Restaurant 3">
-                            <p>Restaurant Data</p>
-                            <div class="btn-content">
-                                <button nz-button nzType="primary">Approve</button> 
-                                <button nz-button nzType="default" nzDanger style="margin-left: 10px;">Reject</button>
-                            </div>
-                           
-                        </nz-card>
-                      </div>
+    <div style="background: #ECECEC;padding:30px;">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'300px',margin:'10px'}">
+            <input [formControl]="searchControl" type="text" nz-input placeholder="input search text" />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+        </ng-template>
+        <div nz-row>
+            <div nz-col class="nz-col" *ngFor="let item of restaurantsDetails">
+                <nz-card nzTitle="{{item?.name}}">
+                    <p><b>Address:</b>{{item?.address}}</p>
+                    <p><b>Phone Number:</b>{{item?.phoneNumber}}</p>
+                    <div class="btn-content">
+                        <button nz-button nzType="primary" (click)="onClickOpenCreateApprovalsModal(item)">Approve</button>
+                        <button nz-button nzType="default" nzDanger style="margin-left: 10px;" (click)="onClickDeleteItem(item)">Delete</button>
                     </div>
-                  </div>
+
+                </nz-card>
+            </div>
+        </div>
+        <!-- <mat-paginator [length]="countRestaurnat" [pageSize]="10" (page)="paginate($event)">
+        </mat-paginator> -->
+        <div class="details-message" *ngIf="restaurantsDetails.length<=0">
+            <p>No Details</p>
+        </div>
+    </div>
 </div>

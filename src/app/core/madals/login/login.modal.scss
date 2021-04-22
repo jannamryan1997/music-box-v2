@@ -1,25 +1,25 @@
-  ::ng-deep {
-  .ant-modal-footer{
-    display: none;
+   ::ng-deep {
+      .ant-modal-footer {
+          display: none;
+      }
+      .ant-modal-header {
+          display: none;
+      }
+      .anticon {
+          font-size: 20px;
+      }
+      .ant-input-affix-wrapper {
+          padding: 12px 11px;
+      }
   }
-  .ant-modal-header{
-    display: none;
-}
-.anticon{
-    font-size: 20px;
-}
-.ant-input-affix-wrapper{
-    padding: 12px 11px;
-}
+  
+  .form-button {
+      margin: auto;
+      display: flex;
+      width: 200px;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 20px 0;
   }
-
-  .form-button{
-    margin: auto;
-    display: flex;
-    width: 200px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    border-radius: 20px;
-  }
- 

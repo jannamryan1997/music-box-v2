@@ -10,9 +10,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDeleteModalComponent } from '../madals';
 
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { AppLoadingComponent, MatSpinnerComponent } from '../components';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
-    declarations: [ConfirmDeleteModalComponent],
+    declarations: [ConfirmDeleteModalComponent, AppLoadingComponent, MatSpinnerComponent],
     imports: [FormsModule,
         ReactiveFormsModule,
         CommonModule,
@@ -22,8 +25,12 @@ import { ConfirmDeleteModalComponent } from '../madals';
         NzTableModule,
         NzCardModule,
         NzFormModule,
-        NzModalModule],
+        NzModalModule,
+        NzSpinModule,
+        MatPaginatorModule
+    ],
     exports: [ConfirmDeleteModalComponent,
+        AppLoadingComponent,
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
@@ -33,7 +40,11 @@ import { ConfirmDeleteModalComponent } from '../madals';
         NzTableModule,
         NzCardModule,
         NzFormModule,
-        NzModalModule],
+        NzModalModule,
+        NzSpinModule,
+        MatPaginatorModule,
+        MatSpinnerComponent
+    ],
     providers: [],
     entryComponents: [ConfirmDeleteModalComponent]
 })

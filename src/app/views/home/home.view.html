@@ -1,0 +1,10 @@
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <div style="position: relative;">
+            <img src="{{ slide.img }}" alt="" class="img">
+            <button nz-button nzType="primary" class="nz-button" (click)="onClickOpenLoginModal()">Login In</button>
+        </div>
+
+    </div>
+
+</ngx-slick-carousel>

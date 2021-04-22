@@ -7,10 +7,17 @@ i {
     cursor: pointer;
 }
 
-header{
-    .title{
+header {
+    .title {
         color: #00c0fa;
         font-size: 20px;
         margin: 10px 0;
     }
+}
+
+.details-message {
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    color: #00c0fa;
 }

@@ -16,6 +16,8 @@
                 </nz-input-group>
             </nz-form-control>
         </nz-form-item>
-        <button nz-button class="form-button" [nzType]="'primary'">Log in</button>
+        <button nz-button class="form-button" [nzType]="'primary'" [disabled]="validateForm.invalid || loading" (click)="onClickLogin()">Log in 
+            <app-loading *ngIf="loading"></app-loading>
+        </button>
     </form>
 </div>
