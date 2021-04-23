@@ -1,43 +1,45 @@
 <div>
+    <app-mat-spinner *ngIf="loading"></app-mat-spinner>
     <header>
         <p class="title">Play List</p>
-        <button nz-button nzType="primary" [style]="{margin:'10px'}"><i nz-icon nzType="plus"></i>Add Songs</button>
+        <button *ngIf="role==='Restaurant'" nz-button nzType="primary" [style]="{margin:'10px'}" (click)="onClickAddSongModal()"><i nz-icon nzType="plus"></i>Add Songs</button>
     </header>
     <div>
-        <nz-table>
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'300px',margin:'10px'}">
+            <input [formControl]="searchControl" type="text" nz-input placeholder="input search text" />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+        </ng-template>
+        <nz-table *ngIf="songsDetails.length>0">
             <thead>
                 <tr>
+                    <th>Index</th>
                     <th>Play</th>
                     <th>Name</th>
                     <th>URL</th>
                     <th>Second</th>
+                    <th>Price</th>
+                    <th>Restaurant Name</th>
                     <th>Delete</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img class="image" src="assets/image/image.jpg"></td>
-                    <td>Name</td>
-                    <td>https://www.youtube.com/watch?v=U9BOE0hHE_8</td>
-                    <td>endSecond</td>
-                    <td><i nz-icon nzType="delete" nzTheme="outline" (click)="onClickConfirmDelete()"></i></td>
-                </tr>
-                <tr>
-                    <td><img class="image" src="assets/image/image.jpg"></td>
-                    <td>Name</td>
-                    <td>https://www.youtube.com/watch?v=U9BOE0hHE_8</td>
-                    <td>endSecond</td>
-                    <td><i nz-icon nzType="delete" nzTheme="outline" (click)="onClickConfirmDelete()"></i></td>
-                </tr>
-                <tr>
-                    <td><img class="image" src="assets/image/image.jpg"></td>
-                    <td>Name</td>
-                    <td>https://www.youtube.com/watch?v=U9BOE0hHE_8</td>
-                    <td>endSecond</td>
-                    <td><i nz-icon nzType="delete" nzTheme="outline" (click)="onClickConfirmDelete()"></i></td>
+                <tr *ngFor="let item of songsDetails;let ind=index">
+                    <td>{{ind+1}}</td>
+                    <td><img class="image" src="assets/image/image.jpg" (click)="onClickOpenViewVideoModal(item)"></td>
+                    <td>{{item?.name}}</td>
+                    <td>{{item?.url}}</td>
+                    <td>{{item?.endSecond}}</td>
+                    <td>{{item?.price}}</td>
+                    <td>{{item?.restaurantName}}</td>
+                    <td><i nz-icon nzType="delete" nzTheme="outline" (click)="onClickDeleteItem(item)"></i></td>
                 </tr>
             </tbody>
         </nz-table>
+        <div class="details-message" *ngIf="songsDetails.length<=0">
+            <p>No Details</p>
+        </div>
     </div>
 </div>

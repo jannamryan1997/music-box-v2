@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NzModalRef} from 'ng-zorro-antd/modal';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
@@ -26,8 +26,8 @@ export class LoginModalComponent implements OnInit, OnDestroy {
         private _cookieService: CookieService,
         private _homeService: HomeService,
         private _router: Router,
-        private  _nzModal: NzModalRef,
-        ) { }
+        private _nzModal: NzModalRef,
+    ) { }
 
     ngOnInit(): void {
         this._initForm();
@@ -35,8 +35,8 @@ export class LoginModalComponent implements OnInit, OnDestroy {
 
     private _initForm(): void {
         this.validateForm = this._fb.group({
-            userName: ['admin@music-box.org', [Validators.required, Validators.email]],
-            password: ['admin', [Validators.required]],
+            userName: ['hayat@mail.ru', [Validators.required, Validators.email]],
+            password: ['Qwerty12345=', [Validators.required]],
         });
     }
 
@@ -64,11 +64,11 @@ export class LoginModalComponent implements OnInit, OnDestroy {
                     this.loading = false;
                 }))
             .subscribe((data: IAuthorization) => {
+
                 this._cookieService.set('accessToken', data.accessToken);
                 this._cookieService.set('refreshToken', data.refreshToken);
                 this._nzModal.destroy();
-                this._router.navigate(['']);
-
+                this._router.navigate(['/playlist']);
             },
                 err => {
                     this.errorMessage = err.message;

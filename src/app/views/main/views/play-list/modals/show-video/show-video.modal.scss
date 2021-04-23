@@ -1,0 +1,15 @@
+.youtube-content {
+    margin: 30px 0;
+}
+
+::ng-deep {
+    .ant-modal-footer {
+        display: none;
+    }
+    .ant-modal-header {
+        display: none;
+    }
+    iframe {
+        width: 100%;
+    }
+}

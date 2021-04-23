@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { User } from '../modules/user';
 
 
@@ -14,8 +14,7 @@ export class UserService {
 
     constructor(
         private _httpClient: HttpClient,
-    ) {
-    }
+    ) {}
 
     public fetchUser(): Observable<User> {
         return this._httpClient.get<User>('user/about');
@@ -29,6 +28,16 @@ export class UserService {
     public getUserSync(): User {
         return this._user;
     }
+    public getUserInfo(role: string): Observable<User> {
+        return this._httpClient.get<User>(`${role.toLowerCase()}/info`);
+            // .pipe(
+            //     map((data) => {
+            //         this.setUser(data);
+            //         return data;
+            //     })
+            // );
+    }
+
 
     public getUser(): Observable<User> {
         return this._userState$.asObservable()

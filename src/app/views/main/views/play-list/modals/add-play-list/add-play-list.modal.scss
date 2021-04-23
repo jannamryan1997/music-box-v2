@@ -1,0 +1,16 @@
+::ng-deep {
+    .p-dropdown {
+        width: 100%;
+        border: 1px solid #40a9ff;
+        border-radius: 5px;
+    }
+    .ant-modal-footer {
+        display: none;
+    }
+    .ant-modal-header {
+        display: none;
+    }
+    iframe {
+        width: 100%;
+    }
+}
