@@ -5,7 +5,7 @@
         <button *ngIf="role==='Restaurant'" nz-button nzType="primary" [style]="{margin:'10px'}" (click)="onClickAddSongModal()"><i nz-icon nzType="plus"></i>Add Songs</button>
     </header>
     <div>
-        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'300px',margin:'10px'}">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'250px',margin:'10px'}">
             <input [formControl]="searchControl" type="text" nz-input placeholder="input search text" />
         </nz-input-group>
         <ng-template #suffixIconButton>
@@ -20,7 +20,6 @@
                     <th>URL</th>
                     <th>Second</th>
                     <th>Price</th>
-                    <th>Restaurant Name</th>
                     <th>Delete</th>
 
                 </tr>
@@ -33,7 +32,6 @@
                     <td>{{item?.url}}</td>
                     <td>{{item?.endSecond}}</td>
                     <td>{{item?.price}}</td>
-                    <td>{{item?.restaurantName}}</td>
                     <td><i nz-icon nzType="delete" nzTheme="outline" (click)="onClickDeleteItem(item)"></i></td>
                 </tr>
             </tbody>

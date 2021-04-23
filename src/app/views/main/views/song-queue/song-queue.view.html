@@ -2,45 +2,29 @@
     <header>
         <p class="title">Song Queue</p>
     </header>
+
     <div style="background: #ECECEC;padding:30px;">
-        <div nz-row>
-            <div nz-col class="nz-col">
-                <nz-card>
-                    <img class="image" src="assets/image/image.jpg">
-                    <div>
-                        <p>Ladaniva</p>
-                        <p>Ladaniva en live chez Radio Nova | Chambre noire</p>
-                    </div>
-                    <div class="icon-content">
-                        <i nz-icon nzType="play-circle" nzTheme="outline"></i>
-                        <i nz-icon nzType="more" nzTheme="outline"></i>
-                    </div>
-
-                </nz-card>
-                <nz-card>
-                    <img class="image" src="assets/image/image.jpg">
-                    <div>
-                        <p>Ladaniva</p>
-                        <p>Ladaniva en live chez Radio Nova | Chambre noire</p>
-                    </div>
-                    <div class="icon-content">
-                        <i nz-icon nzType="play-circle" nzTheme="outline"></i>
-                        <i nz-icon nzType="more" nzTheme="outline"></i>
-                    </div>
-                </nz-card>
-                <nz-card>
-                    <img class="image" src="assets/image/image.jpg">
-                    <div>
-                        <p>Ladaniva</p>
-                        <p>Ladaniva en live chez Radio Nova | Chambre noire</p>
-                    </div>
-                    <div class="icon-content">
-                        <i nz-icon nzType="play-circle" nzTheme="outline"></i>
-                        <i nz-icon nzType="more" nzTheme="outline"></i>
-                    </div>
-
-                </nz-card>
-            </div>
+        <div id="player"></div>
+        <nz-table *ngIf="playList.length>0">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Play Time</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let playListItem of playList;let ind = index;trackBy: identify" [class.passedSong]="playListItem?.status == 1" [class.activeSong]="currentSong?.orderId === playListItem?.orderId">
+                    <td>{{ind+1}}</td>
+                    <td>{{playListItem?.name}}</td>
+                    <td>{{playListItem?.playTime}}</td>
+                    <td>{{playListItem?.price}}</td>
+                </tr>
+            </tbody>
+        </nz-table>
+        <div class="details-message" *ngIf="playList.length<=0">
+            <p>No Details</p>
         </div>
     </div>
 </div>

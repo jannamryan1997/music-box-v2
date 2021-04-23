@@ -24,8 +24,8 @@ const mainRoutes: Routes = [{
             canActivate: [RoleGuard]
         },
         {
-            path: 'offers',
-            loadChildren: () => import('./views/offers/offers.module').then(m => m.OffersModule),
+            path: 'recommendation',
+            loadChildren: () => import('./views/recommendation/recommendation.module').then(m => m.RecommendationModule),
             data: {
                 enabledRoles: [EUserRole.Restaurant]
             },

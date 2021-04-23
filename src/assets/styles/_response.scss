@@ -13,6 +13,9 @@
     #chart-item {
         width: 100% !important;
     }
+    iframe {
+        width: 350px !important;
+    }
 }
 
 @media only screen and (max-width:600px) {
@@ -30,5 +33,8 @@
     }
     .main-slider {
         display: block !important;
+    }
+    iframe {
+        width: 250px !important;
     }
 }

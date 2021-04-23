@@ -1,9 +1,12 @@
-li {
-    padding: 15px 10px;
-    cursor: pointer;
-    span {
-        margin-left: 10px;
-        color: white !important;
+ul {
+    margin-top: 64px;
+    li {
+        padding: 15px 10px;
+        cursor: pointer;
+        span {
+            margin-left: 10px;
+            color: white !important;
+        }
     }
 }
 
@@ -14,4 +17,15 @@ li {
 
 .iconactivatedRoute {
     color: white !important;
+}
+
+::ng-deep {
+    .ant-layout-sider-collapsed {
+        flex: 0 0 0px !important;
+        max-width: 0px !important;
+        min-width: 0px !important;
+        width: 0px !important;
+        opacity: 0 !important;
+        transition: .2s !important;
+    }
 }

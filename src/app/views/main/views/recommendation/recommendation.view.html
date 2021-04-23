@@ -1,27 +1,28 @@
 <div class="view-main">
+    <app-mat-spinner *ngIf="loading"></app-mat-spinner>
     <header>
-        <p class="title">Offers</p>
+        <p class="title">Recommendation</p>
     </header>
     <div style="background: #ECECEC;padding:30px;">
-        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'300px',margin:'10px'}">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" [style]="{width:'250px',margin:'10px'}">
             <input [formControl]="searchControl" type="text" nz-input placeholder="input search text" />
         </nz-input-group>
         <ng-template #suffixIconButton>
             <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
         </ng-template>
-        <div nz-row *ngIf="offersDetails.length>0">
-            <div nz-col class="nz-col" *ngFor="let item of offersDetails">
+        <div nz-row *ngIf="recommendationDetails.length>0">
+            <div nz-col class="nz-col" *ngFor="let item of recommendationDetails">
                 <nz-card nzTitle="{{item?.name}}">
                     <a target="_blank" [href]="item?.url">{{item?.url}}</a>
                     <div class="btn-content">
-                        <button nz-button nzType="primary">Accept</button>
-                        <button nz-button nzType="default" nzDanger style="margin-left: 10px;">Decline</button>
+                        <button nz-button nzType="primary" (click)="onClickOpenSongVerify(item)">Accept</button>
+                        <button nz-button nzType="default" nzDanger style="margin-left: 10px;" (click)="songDecline(item)">Decline</button>
                     </div>
 
                 </nz-card>
             </div>
         </div>
-        <div class="details-message" *ngIf="offersDetails.length<=0">
+        <div class="details-message" *ngIf="recommendationDetails.length<=0">
             <p>No Details</p>
         </div>
     </div>
