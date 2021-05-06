@@ -57,8 +57,6 @@ export class RecommendationViewComponent implements OnInit, OnDestroy {
             .subscribe((data: PaginatorResponse<IRecommendation[]>) => {
                 this.countOffers = data.count;
                 this.recommendationDetails = data.data;
-                console.log(   this.recommendationDetails);
-                
             });
     }
 
@@ -84,7 +82,6 @@ export class RecommendationViewComponent implements OnInit, OnDestroy {
                     this.loading = false;
                 }))
             .subscribe((data) => {
-                console.log(data);
                 this._getRecommendation();
                 const type = 'success';
                 this.message.create(type, `This is a message of ${type}`);

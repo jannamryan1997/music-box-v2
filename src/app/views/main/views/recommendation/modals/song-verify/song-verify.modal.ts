@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzModalRef } from 'ng-zorro-antd/modal';
-import { pipe, Subject } from 'rxjs';
+import {  Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
 import { IRecommendation, ISongVerify } from 'src/app/core/modules/recommendation';
 import { IGenres, IGenresDetails } from 'src/app/core/modules/song';
@@ -47,8 +47,6 @@ export class SongVerifyModalComponent implements OnInit, OnDestroy {
     }
 
     private _getGeneres(): void {
-        console.log(this.item);
-
         this._recommendationService.getSongGenres()
             .pipe(takeUntil(this._unsubscribe$),
                 finalize(() => { })
@@ -83,7 +81,6 @@ export class SongVerifyModalComponent implements OnInit, OnDestroy {
                 })
             )
             .subscribe((data) => {
-                console.log(data);
                 if (data) {
                     this._nzModalRef.destroy('accept');
                 }

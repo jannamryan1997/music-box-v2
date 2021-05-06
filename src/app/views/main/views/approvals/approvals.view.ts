@@ -40,7 +40,6 @@ export class ApprovalsViewComponent implements OnInit, OnDestroy {
         this._getRestaurants();
     }
 
-
     private _getRestaurants(isShowloading = true): void {
         if (isShowloading) {
             this.loading = true;
@@ -56,9 +55,6 @@ export class ApprovalsViewComponent implements OnInit, OnDestroy {
             .subscribe((data: PaginatorResponse<IResataurants[]>) => {
                 this.countRestaurnat = data.count;
                 this.restaurantsDetails = data.data;
-                console.log(this.restaurantsDetails);
-
-
             });
     }
     private _deleteApproval(id: number): void {

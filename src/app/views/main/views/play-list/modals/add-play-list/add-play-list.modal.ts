@@ -37,7 +37,6 @@ export class AddPlayListModalComponent implements OnInit, OnDestroy {
         this._userService.getUserInfo(this.role)
             .subscribe((data: User) => {
                 this._restaurantId = data.id;
-                console.log(data);
             });
     }
 

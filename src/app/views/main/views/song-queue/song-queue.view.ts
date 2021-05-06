@@ -81,7 +81,6 @@ export class SongQueueViewComponent implements OnInit, OnDestroy {
                             take(1),
                             switchMap((value) => {
                                 if (value) {
-                                    console.log('dddddd1231221');
                                     return this._getCurrentSong();
                                 }
                                 const v = () => { return };
@@ -105,6 +104,8 @@ export class SongQueueViewComponent implements OnInit, OnDestroy {
                         }
                         this._ordersCompleted.next(false);
                         this.currentSong = data;
+                        console.log( this.currentSong);
+                        
                         this._currentVideoId = this._parseYoutubeUrl(this.currentSong.url);
                         return this._ytReadyEvent$
                             .asObservable()

@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -10,9 +12,15 @@ import { Subject } from 'rxjs';
 export class NotFoundViewComponent implements OnInit, OnDestroy {
 
     private _unsubscribe$ = new Subject<void>();
-    constructor() { }
+    constructor(private _router:Router,private _cookieService:CookieService) { }
 
     ngOnInit(): void { }
+
+public onClickBack():void{
+this._router.navigate(['/home']);
+this._cookieService.deleteAll();
+
+}
     ngOnDestroy(): void {
         this._unsubscribe$.next();
         this._unsubscribe$.complete();

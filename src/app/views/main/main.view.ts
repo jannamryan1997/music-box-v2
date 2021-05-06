@@ -24,10 +24,7 @@ export class MainViewComponent implements OnInit, OnDestroy {
         this._cookieService.set('role', this.role);
     }
 
-    ngOnInit(): void {
-        console.log(this._userService.getUser());
-        
-     }
+    ngOnInit(): void {}
 
     public logOut(item: IMenuItem): boolean {
         if (item.label === 'Log out') {
